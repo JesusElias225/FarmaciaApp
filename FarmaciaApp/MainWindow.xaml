@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="FarmaciaApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Farmacia - Ventas">
+
+    <Grid Background="#EEF4FA" Padding="25" RequestedTheme="Light">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Columna izquierda: formulario -->
+        <StackPanel Grid.Column="0" Spacing="8" Margin="0,0,25,0">
+
+            <TextBlock Text="💊 Farmacia Universitaria"
+                       FontSize="26" FontWeight="Bold" Foreground="#0B5394"/>
+            <TextBlock Text="Elige tus medicamentos y genera tu ticket"
+                       FontSize="14" Foreground="Gray" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Nombre del cliente:" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtCliente" PlaceholderText="Escribe tu nombre"/>
+
+            <TextBlock Text="Medicamento:" FontWeight="SemiBold"/>
+            <ComboBox x:Name="cmbProductos"
+                      PlaceholderText="Elige un medicamento"
+                      HorizontalAlignment="Stretch"/>
+
+            <TextBlock Text="Cantidad:" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtCantidad" PlaceholderText="Ej. 2"/>
+
+            <Button x:Name="btnAgregar"
+                    Content="Agregar a la compra"
+                    Click="btnAgregar_Click"
+                    HorizontalAlignment="Stretch"
+                    Background="#0B5394" Foreground="White"
+                    Margin="0,8,0,8"/>
+
+            <TextBlock Text="Medicamentos en la compra:" FontWeight="SemiBold"/>
+            <ListView x:Name="lstPedido"
+                      Height="160"
+                      Background="White"
+                      BorderBrush="#0B5394" BorderThickness="1"
+                      CornerRadius="4"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,8,0,0">
+                <Button x:Name="btnQuitar"
+                        Content="Quitar seleccionado"
+                        Click="btnQuitar_Click"/>
+                <Button x:Name="btnTicket"
+                        Content="Generar ticket"
+                        Click="btnTicket_Click"
+                        Background="#2E8B57" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Columna derecha: ticket -->
+        <Border Grid.Column="1"
+                Background="White"
+                BorderBrush="LightGray" BorderThickness="1"
+                CornerRadius="8" Padding="20">
+            <ScrollViewer>
+                <TextBlock x:Name="txtTicket"
+                           Text="Aquí aparecerá tu ticket..."
+                           FontFamily="Consolas" FontSize="14"
+                           TextWrapping="Wrap"/>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

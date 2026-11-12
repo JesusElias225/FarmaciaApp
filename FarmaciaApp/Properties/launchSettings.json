@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FarmaciaApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "FarmaciaApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
